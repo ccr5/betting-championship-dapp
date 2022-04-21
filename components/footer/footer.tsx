@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import './Footer.css'
+import './footer.module.css'
 
 class Footer extends Component {
-  render () {
+  render() {
     return (<footer className="footer">Copyright © - CCR5</footer >)
   }
 }
