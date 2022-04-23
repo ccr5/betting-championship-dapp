@@ -1,7 +1,7 @@
 import { NextComponentType } from "next";
 import Image from "next/image"
 import logo from "../../public/logo.png"
-import styles from '.navbar.module.css'
+import styles from '.Navbar.module.css'
 
 
 const Navbar: NextComponentType = () => {
@@ -21,6 +21,9 @@ const Navbar: NextComponentType = () => {
 					/>
 					etting Championship
 				</a>
+				<form className="d-flex">
+					<button className="btn btn-outline-dark" type="submit">Connect wallet</button>
+				</form>
 			</div >
 		</nav >
 	)
