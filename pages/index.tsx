@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Navbar from '../components/navbar/navbar'
 import Footer from '../components/footer/footer'
 
 import Image from 'next/image'
@@ -16,7 +17,8 @@ const Home: NextPage = () => {
         <title>Betting Championship</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      {/* <div id="content">
+      <Navbar />
+      {/* <div id="copainntent">
         <TeamTable teams={this.props.teams} />
         <Form bet={this.sendBet} teams={this.props.teams} />
         <p className="text-center"> Your account: {this.props.account}</p>
