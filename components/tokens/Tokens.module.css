@@ -11,7 +11,7 @@
     color: white;
     border-radius: 50px;
     background-color: #B5838D;
-    opacity: 0.85;
+    opacity: 0.75;
 }
 
 .tokensTitle {
@@ -23,6 +23,16 @@
 }
 
 .tokensButton {
+    display: flex;
     justify-content: center;
     align-content: center;
+}
+
+.tokensBuyButton {
+    color: white;
+    background-color: #b95f71;
+    border-radius: 10px;
+    margin: 20px;
+    min-height: 50px;
+    text-align: center;
 }

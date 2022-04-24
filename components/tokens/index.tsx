@@ -1,5 +1,4 @@
 import { NextComponentType } from "next";
-import Image from "next/image"
 import SelectToken from "../selectToken";
 import SwapButton from "../swapButton";
 import styles from './Tokens.module.css';
@@ -16,6 +15,9 @@ const Tokens: NextComponentType = () => {
         <SelectToken />
         <SwapButton />
         <SelectToken />
+        <div className={styles.tokensButton}>
+          <input className={styles.tokensBuyButton} type="button" value="Confirm and Buy" />
+        </div>
       </div>
     </div>
   )
