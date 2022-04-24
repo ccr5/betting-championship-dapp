@@ -1,13 +1,15 @@
 import { NextComponentType } from "next";
 import Image from "next/image"
 import logo from "../../public/logo.png"
+import Tokens from "../tokens";
+import Teams from "../teams/teams";
 import styles from '.Navbar.module.css'
 
 
 const Navbar: NextComponentType = () => {
 	return (
 		<nav
-			className="navbar fixed-top navbar-expand-lg navbar-dark"
+			className="navbar navbar-expand-lg navbar-dark"
 			style={{ backgroundColor: "#6D6875" }}
 		>
 			< div className="container-fluid" >

@@ -1,10 +1,12 @@
-import React, { Component } from 'react'
-import './footer.module.css'
+import { NextComponentType } from "next";
+import styles from 'Footer.module.css'
 
-class Footer extends Component {
-  render() {
-    return (<footer className="footer">Copyright © - CCR5</footer >)
-  }
+const Footer: NextComponentType = () => {
+  return (
+    <footer className="fixed-bottom">
+      Copyright © - CCR5
+    </footer>
+  )
 }
 
 export default Footer

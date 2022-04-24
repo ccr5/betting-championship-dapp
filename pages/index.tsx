@@ -2,13 +2,8 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Navbar from '../components/navbar/navbar'
 import Footer from '../components/footer/footer'
-
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-
-// const sendBet = (teamId: Number) => {
-//   this.props.bet(teamId)
-// }
+import Teams from '../components/teams/teams'
+import Tokens from '../components/tokens'
 
 const Home: NextPage = () => {
   return (
@@ -18,11 +13,16 @@ const Home: NextPage = () => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Navbar />
-      {/* <div id="copainntent">
-        <TeamTable teams={this.props.teams} />
-        <Form bet={this.sendBet} teams={this.props.teams} />
-        <p className="text-center"> Your account: {this.props.account}</p>
-      </div> */}
+      <div className="container-fluid">
+        <div className="row content">
+          <div className="col-6">
+            <Teams />
+          </div>
+          <div className="col-6">
+            <Tokens />
+          </div>
+        </div>
+      </div>
       <Footer />
     </>
   )
