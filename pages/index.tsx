@@ -18,7 +18,8 @@ const Home: NextPage = () => {
           <div className="col-6">
             {/* <Teams /> */}
           </div>
-          <div className="col-6">
+          <div className="col-1" />
+          <div className="col-5">
             <Tokens />
           </div>
         </div>
