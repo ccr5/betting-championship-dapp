@@ -13,12 +13,11 @@ const Home: NextPage = () => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Navbar />
-      <div className="container-fluid">
+      <div className="container-fluid" style={{ marginTop: "50px", marginBottom: "80px" }}>
         <div className="row content">
-          <div className="col-6">
-            {/* <Teams /> */}
+          <div className="col-7">
+            <Teams />
           </div>
-          <div className="col-1" />
           <div className="col-5">
             <Tokens />
           </div>

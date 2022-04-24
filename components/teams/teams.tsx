@@ -1,41 +1,24 @@
 import { NextComponentType } from 'next'
 import React, { Component } from 'react'
+import TeamProps from '../../interfaces/team'
+import Team from '../team'
+import styles from './Teams.module.css'
 
 const Teams: NextComponentType = () => {
   return (
-    <div className='card'>
-      <div className='card-title'>
-        teste
-      </div>
-      <div className='card-body'>
-        <table className="table">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Nome</th>
-              <th scope="col">Total R$</th>
-            </tr>
-          </thead>
-          <tbody id="teamsResults">
-            <tr key="">
-              <td>1</td>
-              <td>Matheus</td>
-              <td>0</td>
-            </tr>
-            {/* {
-          this.props.teams.map((team, key) => {
-            return (
-              <tr key={team.id}>
-                <td>{team.id}</td>
-                <td>{team.name}</td>
-                <td>{team.bets}</td>
-              </tr>
-            )
-          })
-        } */}
-          </tbody>
-        </table>
-      </div>
+    <div className={styles.teams}>
+      <table className={styles.teamsTable}>
+        <thead></thead>
+        <tbody id="teamsResults">
+          {/* {
+            props.map((value, index) => {
+              return (
+                <Team team={value} />
+              )
+            })
+          } */}
+        </tbody>
+      </table>
     </div>
   )
 }

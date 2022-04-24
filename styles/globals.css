@@ -2,9 +2,8 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background-color: #FFCDB2;
+  font-family: Kanit, sans-serif;
+  background-color: #facdb5;
 }
 
 footer {
@@ -14,8 +13,8 @@ footer {
   flex-grow: 1;
   color: white;
   min-height: 50px;
-  opacity: 0.8;
-  background-color: #6D6875;
+  opacity: 0.9;
+  background-color: black;
 }
 
 a {
@@ -25,4 +24,5 @@ a {
 
 * {
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
 }

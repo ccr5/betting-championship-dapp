@@ -8,7 +8,11 @@ const Navbar: NextComponentType = () => {
 	return (
 		<nav
 			className="navbar navbar-expand-lg navbar-dark"
-			style={{ backgroundColor: "#6D6875" }}
+			style={{
+				backgroundColor: "#6D6875",
+				borderBottom: "1px solid",
+				alignItems: "center"
+			}}
 		>
 			< div className="container-fluid" >
 				<a className="navbar-brand" href="#">
