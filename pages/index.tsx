@@ -16,7 +16,7 @@ const Home: NextPage = () => {
       <div className="container-fluid">
         <div className="row content">
           <div className="col-6">
-            <Teams />
+            {/* <Teams /> */}
           </div>
           <div className="col-6">
             <Tokens />

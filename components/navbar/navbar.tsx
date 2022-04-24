@@ -1,8 +1,6 @@
 import { NextComponentType } from "next";
 import Image from "next/image"
 import logo from "../../public/logo.png"
-import Tokens from "../tokens";
-import Teams from "../teams/teams";
 import styles from '.Navbar.module.css'
 
 
