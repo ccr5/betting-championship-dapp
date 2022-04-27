@@ -10,6 +10,7 @@ const Teams: NextComponentType = () => {
       <table className={styles.teamsTable}>
         <thead></thead>
         <tbody id="teamsResults">
+          <Team />
           {/* {
             props.map((value, index) => {
               return (
