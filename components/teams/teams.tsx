@@ -1,23 +1,25 @@
 import { NextComponentType } from 'next'
 import React, { Component } from 'react'
-import TeamProps from '../../interfaces/team'
 import Team from '../team'
 import styles from './Teams.module.css'
 
 const Teams: NextComponentType = () => {
+  const array = [0, 1, 2, 3]
+
   return (
     <div className={styles.teams}>
       <table className={styles.teamsTable}>
         <thead></thead>
         <tbody id="teamsResults">
-          <Team />
-          {/* {
-            props.map((value, index) => {
+          {
+            array.map((value) => {
               return (
-                <Team team={value} />
+                <tr key={value}>
+                  <Team />
+                </tr>
               )
             })
-          } */}
+          }
         </tbody>
       </table>
     </div>
