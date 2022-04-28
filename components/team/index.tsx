@@ -41,8 +41,8 @@ const Team: NextComponentType = () => {
             <p> You have betting in {"São Paulo"} a total of: {"10.000"} BETs</p>
           </div>
           <div className={styles.teamDetails}>
-            <input className={styles.selectAmount} style={{ width: "90%" }} type="text" placeholder="0.0" aria-label="0.0" />
-            <button>Bet</button>
+            <input className={styles.teamAmount} style={{ width: "90%" }} type="text" placeholder="0.0" aria-label="0.0" />
+            <button className={styles.teamButton}>Bet</button>
           </div>
         </div>
       }

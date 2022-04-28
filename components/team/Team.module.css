@@ -47,3 +47,23 @@
     margin: 10px;
     padding: 10px;
 }
+
+.teamAmount {
+    background-color: #a39dac;
+    opacity: 0.8;
+    color: white;
+    border-radius: 10px;
+    margin: 5px;
+    min-height: 50px;
+    text-align: center;
+}
+
+.teamButton {
+    color: white;
+    background-color: #b95f71;
+    border-radius: 10px;
+    margin: 5px;
+    min-height: 50px;
+    min-width: 80px;
+    text-align: center;
+}
