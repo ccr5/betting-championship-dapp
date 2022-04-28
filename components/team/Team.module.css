@@ -1,3 +1,16 @@
+.team {
+    display: inline-flex;
+    align-items: center;
+    height: 80px;
+    width: 100%;
+    padding: 20px;
+    margin-top: 10px;
+    border: none;
+    border-bottom: 1px solid;
+    border-color: #E5989B;
+    background-color: transparent;
+}
+
 .info {
     display: inline-flex;
     align-items: center;
@@ -5,8 +18,6 @@
     width: 100%;
     padding: 20px;
     margin-top: 10px;
-    border-bottom: 1px solid;
-    border-color: #E5989B;
 }
 
 .teamInfo {
@@ -23,7 +34,7 @@
     height: 80px;
     width: 100%;
     padding: 20px;
-    background-color: white;
+    background-color: #6D6875;
 }
 
 .teamDetails {
@@ -32,5 +43,7 @@
     justify-content: center;
     height: 50px;
     width: 50%;
-    color: #E5989B;
+    color: white;
+    margin: 10px;
+    padding: 10px;
 }
