@@ -1,28 +1,3 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: Kanit, sans-serif;
-  background-color: #facdb5;
-}
-
-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-  color: white;
-  min-height: 50px;
-  opacity: 0.9;
-  background-color: black;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

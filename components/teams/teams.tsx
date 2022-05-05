@@ -8,20 +8,17 @@ const Teams: NextComponentType = () => {
 
   return (
     <div className={styles.teams}>
-      <table className={styles.teamsTable}>
-        <thead></thead>
-        <tbody id="teamsResults">
-          {
-            array.map((value) => {
-              return (
-                <tr key={value}>
-                  <Team />
-                </tr>
-              )
-            })
-          }
-        </tbody>
-      </table>
+      <div className={styles.teamsTable}>
+        {
+          array.map((value) => {
+            return (
+              <div key={value}>
+                <Team />
+              </div>
+            )
+          })
+        }
+      </div>
     </div>
   )
 }

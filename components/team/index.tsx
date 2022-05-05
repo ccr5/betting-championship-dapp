@@ -13,16 +13,16 @@ const Team: NextComponentType = () => {
       <button className={styles.team} onClick={() => setIsOpen(!isOpen)}>
         <div className={styles.info}>
           <div className={styles.teamInfo}>
-            <p>1</p>
+            1
           </div>
           <div className={styles.teamInfo}>
-            <p>São Paulo</p>
+            São Paulo
           </div>
           <div className={styles.teamInfo}>
-            <p>2</p>
+            2
           </div>
           <div className={styles.teamInfo}>
-            <p>10.000</p>
+            10.000
           </div>
           <div className={styles.teamInfo}>
             <Image
@@ -38,7 +38,7 @@ const Team: NextComponentType = () => {
       {isOpen &&
         <div className={styles.details}>
           <div className={styles.teamDetails}>
-            <p> You have betting in {"São Paulo"} a total of: {"10.000"} BETs</p>
+            You have betting in {"São Paulo"} a total of: {"10.000"} BETs
           </div>
           <div className={styles.teamDetails}>
             <input className={styles.teamAmount} style={{ width: "90%" }} type="text" placeholder="0.0" aria-label="0.0" />
