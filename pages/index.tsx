@@ -25,7 +25,7 @@ const Home: NextPage = () => {
             <Teams />
           </div>
           <div className="w-1/2 items-center mt-12">
-            <Tokens />
+            <Tokens account={account} />
           </div>
         </div>
       </div>

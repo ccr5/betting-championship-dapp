@@ -1,23 +1,50 @@
 import { NextComponentType } from "next";
-import SelectToken from "../selectToken";
-import SwapButton from "../swapButton";
-import styles from './Tokens.module.css';
+import { useEffect, useState } from "react";
+import BuyButton from "./buyButton";
+import SelectToken from "./selectToken";
+import SwapButton from "./swapButton";
 
-const Tokens: NextComponentType = () => {
+interface TokensProps {
+  account: string | null
+}
+
+const Tokens = (props: TokensProps) => {
+  const [isDisable, setIsDisable] = useState(true)
+  const [from, setFrom] = useState<"ethers" | "betting">("ethers")
+  const [fromValue, setFromValue] = useState<Number>(0)
+  const [to, setTo] = useState<"ethers" | "betting">("betting")
+  const [toValue, setToValue] = useState<Number>(0)
+
+  useEffect(() => {
+    props.account == null ? setIsDisable(true) : setIsDisable(false)
+  }, [props.account])
+
+  useEffect(() => {
+    console.log(fromValue, toValue)
+  }, [fromValue, toValue])
+
+  function toggle() {
+    const newFrom = to
+    const newTo = from
+    setFrom(newFrom)
+    setTo(newTo)
+  }
+
   return (
-    <div className={styles.tokens}>
-      <div className={styles.tokensCard}>
-        <div className={styles.tokensTitle}>
+    <div className="flex justify-center items-center">
+      <div
+        className="min-h-[450px] w-96 m-4 text-white rounded-3xl bg-[#B5838D]"
+        style={{ boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }}
+      >
+        <div className="mt-2 min-h-[50px] p-2 text-center justify-center mb-2">
           <h4>BET Tokens</h4>
           <p>Buy BET tokens in an instant using ethers</p>
           <hr />
         </div>
-        <SelectToken />
-        <SwapButton />
-        <SelectToken />
-        <div className={styles.tokensButton}>
-          <input className={styles.tokensBuyButton} type="button" value="Confirm and Buy" />
-        </div>
+        <SelectToken token={from} onSetValue={setFromValue} />
+        <SwapButton toggle={toggle} />
+        <SelectToken token={to} onSetValue={setToValue} />
+        <BuyButton disable={isDisable} />
       </div>
     </div>
   )
