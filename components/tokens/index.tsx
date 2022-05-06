@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import BuyButton from "./buyButton";
 import SelectToken from "./selectToken";
 import SwapButton from "./swapButton";
+import SwapToken from "./swapToken";
 
 interface TokensProps {
   account: string | null
@@ -18,10 +19,6 @@ const Tokens = (props: TokensProps) => {
   useEffect(() => {
     props.account == null ? setIsDisable(true) : setIsDisable(false)
   }, [props.account])
-
-  useEffect(() => {
-    console.log(fromValue, toValue)
-  }, [fromValue, toValue])
 
   function toggle() {
     const newFrom = to
@@ -43,7 +40,7 @@ const Tokens = (props: TokensProps) => {
         </div>
         <SelectToken token={from} onSetValue={setFromValue} />
         <SwapButton toggle={toggle} />
-        <SelectToken token={to} onSetValue={setToValue} />
+        <SwapToken token={to} onSetValue={setToValue} fromValue={fromValue} />
         <BuyButton disable={isDisable} />
       </div>
     </div>
