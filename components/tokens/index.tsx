@@ -11,6 +11,7 @@ interface TokensProps {
 
 const Tokens = (props: TokensProps) => {
   const [isDisable, setIsDisable] = useState(true)
+  const [isApproval, setIsApproval] = useState(false)
   const [from, setFrom] = useState<"ethers" | "betting">("ethers")
   const [fromValue, setFromValue] = useState<Number>(0)
   const [to, setTo] = useState<"ethers" | "betting">("betting")
@@ -41,7 +42,7 @@ const Tokens = (props: TokensProps) => {
         <SelectToken token={from} onSetValue={setFromValue} />
         <SwapButton toggle={toggle} />
         <SwapToken token={to} onSetValue={setToValue} fromValue={fromValue} />
-        <BuyButton disable={isDisable} />
+        <BuyButton disable={isDisable} approval={isApproval} />
       </div>
     </div>
   )
