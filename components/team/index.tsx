@@ -1,5 +1,4 @@
 import { NextComponentType } from "next";
-import TeamProps from "../../interfaces/team";
 import styles from "./Team.module.css";
 import Image from "next/image";
 import downArrow from "../../public/down-arrow.png"
