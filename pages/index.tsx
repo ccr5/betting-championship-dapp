@@ -1,16 +1,37 @@
-import type { NextPage } from 'next'
 import Head from 'next/head'
+import { providers } from "ethers";
+import type { NextPage } from 'next'
+import { createContext, useEffect, useState } from 'react'
 import Navbar from '../components/navbar/navbar'
 import Footer from '../components/footer/footer'
-import Teams from '../components/teams/teams'
-import Tokens from '../components/tokens'
-import { useState } from 'react'
-import { providers } from "ethers";
+import Content from '../components/content'
+import { AppProvider, IAppProvider } from '../context/provider';
+import { ConnectedAccount, IConnectedAccount } from '../context/account';
 
 const Home: NextPage = () => {
+  const [appProviderContext, setAppProviderContext] = useState<IAppProvider>({
+    provider: null,
+    handleProvider: handleProvider
+  })
 
-  const [account, setAccount] = useState<string | null>(null)
-  const [provider, setProvider] = useState<providers.Web3Provider | null>(null)
+  const [connectedContext, setConnectedContext] = useState<IConnectedAccount>({
+    account: null,
+    handleAccount: handleAccount
+  })
+
+  function handleProvider(value: providers.Web3Provider | null) {
+    setAppProviderContext({
+      provider: value,
+      handleProvider: handleProvider
+    })
+  }
+
+  function handleAccount(value: string | null) {
+    setConnectedContext({
+      account: value,
+      handleAccount: handleAccount
+    })
+  }
 
   return (
     <>
@@ -18,18 +39,13 @@ const Home: NextPage = () => {
         <title>Betting Championship</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Navbar account={account} onChangeAccount={setAccount} provider={provider} onSetProvider={setProvider} />
-      <div className="bg-bground min-h-screen">
-        <div className="flex">
-          <div className="w-1/2 items-center mt-12">
-            <Teams />
-          </div>
-          <div className="w-1/2 items-center mt-12">
-            <Tokens account={account} />
-          </div>
-        </div>
-      </div>
-      <Footer />
+      <AppProvider.Provider value={appProviderContext}>
+        <ConnectedAccount.Provider value={connectedContext}>
+          <Navbar />
+          <Content />
+          <Footer />
+        </ConnectedAccount.Provider>
+      </AppProvider.Provider>
     </>
   )
 }

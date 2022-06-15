@@ -1,15 +1,12 @@
-import { NextComponentType } from "next";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { ConnectedAccount } from "../../context/account";
 import BuyButton from "./buyButton";
 import SelectToken from "./selectToken";
 import SwapButton from "./swapButton";
 import SwapToken from "./swapToken";
 
-interface TokensProps {
-  account: string | null
-}
-
-const Tokens = (props: TokensProps) => {
+export default function Tokens() {
+  const connectedAccount = useContext(ConnectedAccount)
   const [isDisable, setIsDisable] = useState(true)
   const [isApproval, setIsApproval] = useState(false)
   const [from, setFrom] = useState<"ethers" | "betting">("ethers")
@@ -18,8 +15,8 @@ const Tokens = (props: TokensProps) => {
   const [toValue, setToValue] = useState<Number>(0)
 
   useEffect(() => {
-    props.account == null ? setIsDisable(true) : setIsDisable(false)
-  }, [props.account])
+    connectedAccount.account == null ? setIsDisable(true) : setIsDisable(false)
+  }, [connectedAccount.account])
 
   function toggle() {
     const newFrom = to
@@ -47,5 +44,3 @@ const Tokens = (props: TokensProps) => {
     </div>
   )
 }
-
-export default Tokens

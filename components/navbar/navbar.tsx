@@ -1,33 +1,29 @@
-import { NextComponentType } from "next";
 import Image from "next/image"
-import logo from "../../public/logo.png"
 import { ethers } from "ethers";
 import Web3Modal from "web3modal";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import logo from "../../public/logo.png"
+import { ConnectedAccount } from "../../context/account";
+import { AppProvider } from "../../context/provider";
 
-interface NavbarProps {
-	account: string | null
-	onChangeAccount(text: string | null): any
-	provider: ethers.providers.Web3Provider | null,
-	onSetProvider(provider: ethers.providers.Web3Provider): any
-}
-
-const Navbar = (props: NavbarProps) => {
+export default function Navbar() {
+	const connectedAccount = useContext(ConnectedAccount)
+	const appProvider = useContext(AppProvider)
 
 	async function getProvider() {
 		const web3Modal = new Web3Modal()
 		const instance = await web3Modal.connect();
 		const provider = new ethers.providers.Web3Provider(instance);
-		props.onSetProvider(provider)
+		appProvider.handleProvider(provider)
 	}
 
 	async function getAccount() {
 
-		if (props.provider == null) {
+		if (appProvider.provider == null) {
 			await getProvider()
 		} else {
-			await props.provider.send("eth_requestAccounts", []);
-			const signer = props.provider.getSigner();
+			await appProvider.provider.send("eth_requestAccounts", []);
+			const signer = appProvider.provider.getSigner();
 			return await signer.getAddress()
 		}
 
@@ -35,12 +31,12 @@ const Navbar = (props: NavbarProps) => {
 
 	async function handleAccount() {
 
-		if (props.provider == null) {
+		if (appProvider.provider == null) {
 			await getProvider()
 		} else {
 			const acc = await getAccount()
 			if (acc != null) {
-				props.onChangeAccount(acc)
+				connectedAccount.handleAccount(acc)
 			}
 		}
 	}
@@ -75,11 +71,11 @@ const Navbar = (props: NavbarProps) => {
 					type="submit"
 					onClick={async () => { await handleAccount() }}
 				>
-					{props.account == null ? "Connect wallet" : `${props.account.substring(0, 5)}...${props.account.substring((props.account.length - 4))}`}
+					{connectedAccount.account == null ?
+						"Connect wallet" :
+						`${connectedAccount.account.substring(0, 5)}...${connectedAccount.account.substring((connectedAccount.account.length - 4))}`}
 				</button>
 			</div >
 		</nav >
 	)
 }
-
-export default Navbar
