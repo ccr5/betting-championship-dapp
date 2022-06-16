@@ -42,15 +42,17 @@ export default function Navbar() {
 	}
 
 	useEffect(() => {
-		window.ethereum.on('chainChanged', async () => {
-			await getProvider()
-			await handleAccount()
-		})
+		if (window.ethereum) {
+			window.ethereum.on('chainChanged', async () => {
+				await getProvider()
+				await handleAccount()
+			})
 
-		window.ethereum.on('accountsChanged', async () => {
-			await getProvider()
-			await handleAccount()
-		})
+			window.ethereum.on('accountsChanged', async () => {
+				await getProvider()
+				await handleAccount()
+			})
+		}
 	})
 
 	return (
