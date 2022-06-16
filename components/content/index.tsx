@@ -1,5 +1,5 @@
-import Teams from "../teams/teams";
-import Tokens from "../tokens";
+import Teams from "./teams/teams";
+import Tokens from "./tokens";
 
 export default function Content() {
   return (

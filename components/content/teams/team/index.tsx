@@ -1,7 +1,7 @@
 import { NextComponentType } from "next";
 import styles from "./Team.module.css";
 import Image from "next/image";
-import downArrow from "../../public/down-arrow.png"
+import downArrow from "../../../../public/down-arrow.png"
 import { useState } from "react";
 
 const Team: NextComponentType = () => {

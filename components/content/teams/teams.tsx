@@ -1,6 +1,6 @@
 import { NextComponentType } from 'next'
 import React, { Component } from 'react'
-import Team from '../team'
+import Team from './team'
 import styles from './Teams.module.css'
 
 const Teams: NextComponentType = () => {

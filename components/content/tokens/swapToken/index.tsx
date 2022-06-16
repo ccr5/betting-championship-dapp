@@ -1,6 +1,6 @@
 import { NextComponentType } from "next";
-import ethers from "../../../public/ethers.png"
-import betting from "../../../public/betting.png"
+import ethers from "../../../../public/ethers.png"
+import betting from "../../../../public/betting.png"
 import Image from "next/image"
 import { ChangeEvent, useEffect } from "react";
 

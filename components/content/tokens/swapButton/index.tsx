@@ -1,5 +1,5 @@
 import Image from "next/image"
-import swap from "../../../public/swap.png"
+import swap from "../../../../public/swap.png"
 
 interface SwapButtonProps {
   toggle: () => void
@@ -8,7 +8,10 @@ interface SwapButtonProps {
 const SwapButton = (props: SwapButtonProps) => {
   return (
     <div className="flex items-center justify-center mt-8">
-      <button onClick={() => props.toggle()}>
+      <button
+        onClick={() => props.toggle()}
+        disabled
+      >
         <Image
           src={swap}
           alt=""

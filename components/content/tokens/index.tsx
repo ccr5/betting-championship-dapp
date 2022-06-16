@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { ConnectedAccount } from "../../context/account";
+import { ConnectedAccount } from "../../../context/account";
 import BuyButton from "./buyButton";
 import SelectToken from "./selectToken";
 import SwapButton from "./swapButton";
@@ -8,7 +8,6 @@ import SwapToken from "./swapToken";
 export default function Tokens() {
   const connectedAccount = useContext(ConnectedAccount)
   const [isDisable, setIsDisable] = useState(true)
-  const [isApproval, setIsApproval] = useState(false)
   const [from, setFrom] = useState<"ethers" | "betting">("ethers")
   const [fromValue, setFromValue] = useState<Number>(0)
   const [to, setTo] = useState<"ethers" | "betting">("betting")
@@ -39,7 +38,12 @@ export default function Tokens() {
         <SelectToken token={from} onSetValue={setFromValue} />
         <SwapButton toggle={toggle} />
         <SwapToken token={to} onSetValue={setToValue} fromValue={fromValue} />
-        <BuyButton disable={isDisable} approval={isApproval} />
+        <BuyButton
+          disable={isDisable}
+          from={from}
+          fromValue={fromValue}
+          to={to}
+          toValue={toValue} />
       </div>
     </div>
   )
