@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { providers } from "ethers";
 import type { NextPage } from 'next'
-import { createContext, useEffect, useState } from 'react'
+import { useState } from 'react'
 import Navbar from '../components/navbar/navbar'
 import Footer from '../components/footer/footer'
 import Content from '../components/content'
@@ -36,7 +36,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Betting Championship</title>
+        <title>Warriors</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <AppProvider.Provider value={appProviderContext}>
