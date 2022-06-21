@@ -1,21 +1,21 @@
 import Head from 'next/head'
 import type { NextPage } from 'next'
-import Navbar from '../components/navbar'
+import NavbarGame from '../components/navbar-game'
 import Footer from '../components/footer/footer'
-import HomeContent from '../components/homeContent'
+import AppContent from '../components/appContent'
 
-const Home: NextPage = () => {
+const App: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Warriors</title>
+        <title>Warriors - App</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Navbar />
-      <HomeContent />
+      <NavbarGame />
+      <AppContent />
       <Footer />
     </>
   )
 }
 
-export default Home
+export default App

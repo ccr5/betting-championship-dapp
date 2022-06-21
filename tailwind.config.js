@@ -6,9 +6,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        logo: "#d474ee",
-        whitePink: "#d89da9",
-        bground: "#686868"
+        paletteOne: "#0D1821",
+        paletteTwo: "#344966",
+        paletteThree: "#AA7BC3",
+        paletteFour: "#6B9080",
+        paletteFive: "#F0F4EF"
       },
     },
     plugins: [],

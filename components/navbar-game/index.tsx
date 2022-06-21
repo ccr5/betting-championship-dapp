@@ -5,8 +5,9 @@ import { useContext, useEffect } from "react";
 import logo from "../../public/logo.png"
 import { ConnectedAccount } from "../../context/account";
 import { AppProvider } from "../../context/provider";
+import Link from "next/link"
 
-export default function Navbar() {
+export default function NavbarGame() {
 	const connectedAccount = useContext(ConnectedAccount)
 	const appProvider = useContext(AppProvider)
 
@@ -56,28 +57,30 @@ export default function Navbar() {
 	})
 
 	return (
-		<nav className="flex w-full text-white min-h-[50px] bg-black items-center">
-			<div className="flex items-center p-1" >
-				<a href="#">
+		<nav className="flex w-full text-white h-12 bg-paletteTwo items-center">
+			<Link href="/" passHref>
+				<a className="flex items-center">
 					<Image
 						src={logo}
 						alt=""
 						width={30}
-						height={24}
+						height={30}
 						className="d-inline-block align-text-top"
 					/>
-					etting Championship
+					<div className="ml-2">
+						Warriors
+					</div>
 				</a>
-				<button
-					className="absolute right-2 bg-logo rounded h-8 min-w-min p-1 hover:bg-whitePink transition-colors"
-					type="submit"
-					onClick={async () => { await handleAccount() }}
-				>
-					{connectedAccount.account == null ?
-						"Connect wallet" :
-						`${connectedAccount.account.substring(0, 5)}...${connectedAccount.account.substring((connectedAccount.account.length - 4))}`}
-				</button>
-			</div >
+			</Link>
+			<button
+				className="absolute right-2 bg-paletteFour rounded h-8 min-w-min p-1 hover:bg-whitePink transition-colors"
+				type="submit"
+				onClick={async () => { await handleAccount() }}
+			>
+				{connectedAccount.account == null ?
+					"Connect wallet" :
+					`${connectedAccount.account.substring(0, 5)}...${connectedAccount.account.substring((connectedAccount.account.length - 4))}`}
+			</button>
 		</nav >
 	)
 }
