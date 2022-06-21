@@ -2,7 +2,6 @@ import { ethers } from "ethers"
 import { useContext } from "react"
 import { ConnectedAccount } from "../../../../context/account"
 import { AppProvider } from "../../../../context/provider"
-import BettingTokenContract from "../../../../contracts/BettingToken.sol/BettingToken.json"
 
 interface BuyButtonProps {
   disable: boolean
