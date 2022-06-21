@@ -40,7 +40,7 @@ export default function TeamDetails(props: Team) {
     }
   }
 
-  async function handleBet(e) {
+  async function handleBet(e: any) {
     e.preventDefault()
     const amount = parseInt(e.target[0].value)
 
