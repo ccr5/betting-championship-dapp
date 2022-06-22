@@ -36,14 +36,14 @@ export default function BuyButton(props: BuyButtonProps) {
       {
         props.disable ?
           <button
-            className="flex justify-center items-center p-2 text-white bg-[#b95f71] rounded-xl m-5 min-h-[50px] text-center opacity-50"
+            className="flex justify-center items-center p-2 text-white bg-paletteTwo rounded-xl m-1 text-center opacity-50"
             disabled
           >
             Confirm and Swap
           </button>
           :
           <button
-            className="flex justify-center items-center p-2 text-white bg-[#b95f71] rounded-xl m-5 min-h-[50px] text-center hover:bg-whitePink transition-colors"
+            className="flex justify-center items-center p-2 text-white bg-paletteTwo rounded-xl m-1 text-center hover:opacity-70 transition-colors"
             onClick={() => { buyToken() }}
           >
             Confirm and Swap

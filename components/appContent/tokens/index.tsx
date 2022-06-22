@@ -27,23 +27,26 @@ export default function Tokens() {
   return (
     <div className="flex justify-center items-center">
       <div
-        className="min-h-[450px] w-96 m-4 text-white rounded-3xl bg-[#B5838D]"
+        className="h-1/3 w-96 text-white rounded-3xl bg-paletteThree"
         style={{ boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }}
       >
-        <div className="mt-2 min-h-[50px] p-2 text-center justify-center mb-2">
+        <div className="h-1/4 p-2 text-center justify-center">
           <h4>BET Tokens</h4>
-          <p>Buy BET tokens in an instant using ethers</p>
-          <hr />
         </div>
-        <SelectToken token={from} onSetValue={setFromValue} />
-        <SwapButton toggle={toggle} />
-        <SwapToken token={to} onSetValue={setToValue} fromValue={fromValue} />
-        <BuyButton
-          disable={isDisable}
-          from={from}
-          fromValue={fromValue}
-          to={to}
-          toValue={toValue} />
+        <div className="h-1/4 p-2">
+          <SelectToken token={from} onSetValue={setFromValue} />
+        </div>
+        <div className="h-1/4 p-2">
+          <SwapToken token={to} onSetValue={setToValue} fromValue={fromValue} />
+        </div>
+        <div className="h-1/4 p-2">
+          <BuyButton
+            disable={isDisable}
+            from={from}
+            fromValue={fromValue}
+            to={to}
+            toValue={toValue} />
+        </div>
       </div>
     </div>
   )

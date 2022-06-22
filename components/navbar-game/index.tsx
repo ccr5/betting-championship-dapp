@@ -13,8 +13,9 @@ export default function NavbarGame() {
 
 	async function getProvider() {
 		const web3Modal = new Web3Modal()
-		const instance = await web3Modal.connect();
-		const provider = new ethers.providers.Web3Provider(instance);
+		const instance = await web3Modal.connect()
+		const provider = new ethers.providers.Web3Provider(instance)
+		console.log(provider)
 		appProvider.handleProvider(provider)
 	}
 
@@ -57,7 +58,7 @@ export default function NavbarGame() {
 	})
 
 	return (
-		<nav className="flex w-full text-white h-12 bg-paletteTwo items-center">
+		<nav className="flex w-full text-white h-12 bg-paletteTwo items-center p-2">
 			<Link href="/" passHref>
 				<a className="flex items-center">
 					<Image

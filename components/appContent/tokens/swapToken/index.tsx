@@ -25,26 +25,26 @@ const SwapToken = (props: SwapTokenProps) => {
   }, [props.fromValue])
 
   return (
-    <div className="justify-center items-center ml-5">
-      <div className="flex">
+    <div className="flex justify-center items-center">
+      <div className="flex w-1/4 items-center justify-center">
         <div className="m-1">
           <Image
             src={props.token == "ethers" ? ethers : betting}
             alt=""
-            height={20}
-            width={20}
+            height={30}
+            width={30}
           />
         </div>
         <div className="m-1">
           {props.token}
         </div>
       </div>
-      <div className="bg-whitePink w-[90%] text-white rounded-xl m-1 min-h-[50px] flex items-center justify-center text-center">
+      <div className="bg-gray-200 h-full min-h-[30px] w-3/4 text-gray-600 text-opacity-60 rounded-xl m-1 text-center">
         {
           props.fromValue > 0 ? props.token == "ethers" ?
             (parseFloat(props.fromValue.toString()) / 2000).toString() :
             (parseFloat(props.fromValue.toString()) * 2000).toString() :
-            "0"
+            "0.0"
         }
       </div>
     </div>
