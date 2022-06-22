@@ -4,8 +4,6 @@ export default function Game() {
   const scene = new Scene();
 
   return (
-    <canvas
-      className="bg-paletteFive h-1/2 w-full rounded-3xl"
-    />
+    <canvas className="bg-paletteFive min-h-[500px] h-full w-full rounded-3xl" />
   )
 }
