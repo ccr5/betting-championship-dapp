@@ -1,5 +1,7 @@
 import BetTokenICO from "./betTokenIco";
 import Marketing from "./marketing";
+import RoadMap from "./roadmap";
+import TeamInfo from "./teamsInfo";
 
 export default function HomeContent() {
   return (
@@ -10,10 +12,19 @@ export default function HomeContent() {
         </div>
       </div>
       <div className="flex justify-center items-center p-2">
-        <div className="flex justify-center items-center w-1/2">
-          <BetTokenICO />
+        <div className="flex w-4/5 p-2">
+          <div className="flex justify-center items-center w-1/2">
+            <BetTokenICO />
+          </div>
+          <div className="flex justify-center items-center w-1/2">
+            <TeamInfo />
+          </div>
         </div>
-        <div className="flex justify-center items-center w-1/2">Oi</div>
+      </div>
+      <div className="flex justify-center items-center p-2">
+        <div className="flex w-4/5">
+          <RoadMap />
+        </div>
       </div>
     </div>
   )
