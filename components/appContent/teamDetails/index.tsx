@@ -11,7 +11,7 @@ export default function TeamDetails() {
           width={50}
           height={50}
         />
-        <div className="">Khnum Amon</div>
+        <div className="text-xl">Khnum Amon</div>
       </div>
       <div className="flex justify-center items-center w-full m-3">
         <div className="grid grid-cols-2 w-full m-3">
