@@ -12,11 +12,14 @@ export default function HomeContent() {
         </div>
       </div>
       <div className="flex justify-center items-center p-2">
-        <div className="flex w-4/5">
-          <div className="flex justify-center items-center w-1/2">
+        <div className="
+          desktop:grid laptop:grid tablet:grid mobile:block w-4/5
+          desktop:grid-cols-2 laptop:grid-cols-2 tablet:grid-cols-2"
+        >
+          <div className="flex justify-center items-center w-1/2 mobile:w-full">
             <BetTokenICO />
           </div>
-          <div className="flex justify-center items-center w-1/2">
+          <div className="flex justify-center items-center w-1/2 mobile:w-full">
             <TeamInfo />
           </div>
         </div>
