@@ -7,15 +7,32 @@ import Tokens from "./tokens";
 export default function AppContent() {
   return (
     <div className="bg-paletteOne min-h-screen h-min">
-      <div className="flex w-full h-2/3">
-        <div className="w-2/3 items-center mt-6 p-5">
+      <div
+        className="
+          w-full h-2/3 
+          display:flex laptop:flex tablet:block mobile:block
+          display:justify-center laptop:justify-center
+        "
+      >
+        <div
+          className="
+            items-center p-5
+            display:w-2/3 laptop:w-2/3 tablet:w-full mobile:w-full
+          "
+        >
           <Game />
         </div>
-        <div className="w-1/3 items-center mt-6 p-5">
-          <div className="w-full items-center">
+        <div
+          className="
+            items-center m-2 p-5
+            display:block laptop:block tablet:flex mobile:block
+            display:w-1/3 laptop:w-1/3 tablet:w-full mobile:w-full
+          "
+        >
+          <div className="w-full items-center p-1">
             <Tokens />
           </div>
-          <div className="w-full items-center mt-4">
+          <div className="w-full items-center p-1">
             <Teams />
           </div>
         </div>
