@@ -3,7 +3,7 @@ import teamLogo from "../../../public/teamLogo.svg"
 
 export default function TeamDetails() {
   return (
-    <div className="border-2 border-gray-400 text-white m-2 p-2">
+    <div className="border-2 border-gray-400 text-white w-full">
       <div className="flex items-center justify-center gap-4 h-2/6 m-3">
         <Image
           src={teamLogo}

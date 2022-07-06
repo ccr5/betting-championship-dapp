@@ -6,7 +6,7 @@ import Tokens from "./tokens";
 
 export default function AppContent() {
   return (
-    <div className="bg-paletteOne min-h-screen h-min">
+    <div className="bg-paletteOne min-h-screen">
       <div
         className="
           w-full h-2/3 
@@ -37,10 +37,17 @@ export default function AppContent() {
           </div>
         </div>
       </div>
-      <div className="flex w-full h-1/3">
-        <div className="w-1/3"> <Description /> </div>
-        <div className="w-1/3"> <TeamDetails /> </div>
-        <div className="w-1/3"> <TeamDetails /> </div>
+      <div
+        className="
+          w-full h-1/3 p-2
+          display:grid laptop:grid tablet:grid mobile:block
+          display:grid-cols-3 laptop:grid-cols-3 tablet:grid-cols-3
+          display:gap-2 laptop:gap-2 tablet:gap-2
+        "
+      >
+        <Description />
+        <TeamDetails />
+        <TeamDetails />
       </div>
     </div>
   )
