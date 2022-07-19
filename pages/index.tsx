@@ -5,10 +5,11 @@ import Footer from '../components/footer/footer'
 import HomeContent from '../components/homeContent'
 
 const Home: NextPage = () => {
+
   return (
     <>
       <Head>
-        <title>Warriors</title>
+        <title>Warriors - App</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Navbar />
