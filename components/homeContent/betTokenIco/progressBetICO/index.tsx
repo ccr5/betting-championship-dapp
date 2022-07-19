@@ -1,8 +1,48 @@
-export default function ProgressBetICO() {
-  const subsCount = 500000
-  const goal = 1000000
-  const subsPercent = (subsCount / goal)
+import { useState, useEffect } from "react"
 
+export default function ProgressBetICO() {
+  const [tokensOwner, setTokensOwner] = useState<Number | null>(null)
+  const [subsCount, setSubsCount] = useState<Number | null>(null)
+  const [goal, setGoal] = useState<Number>(1000000)
+  const [pendent, setPendent] = useState<String | null>(null)
+
+
+  useEffect(() => {
+    if (!tokensOwner) loadTokensOwner()
+  }, [])
+
+  useEffect(() => {
+    calculateSubsCount()
+  }, [tokensOwner])
+
+  useEffect(() => {
+    calculatePendent()
+  }, [subsCount])
+
+  function loadTokensOwner() {
+    fetch("http://localhost:3000/api/tokens")
+      .then(async (value) => {
+        setTokensOwner(await value.json())
+      })
+  }
+
+  function calculateSubsCount() {
+    if (goal && tokensOwner) {
+      setSubsCount(goal - tokensOwner)
+    }
+  }
+
+  function calculatePendent() {
+    if (subsCount) {
+      if (subsCount < 1000) {
+        setPendent(subsCount.toString())
+      } else if (subsCount == 1000000) {
+        setPendent("1MM")
+      } else {
+        setPendent(`${subsCount / 1000}M`)
+      }
+    }
+  }
 
   return (
     <div
@@ -10,17 +50,17 @@ export default function ProgressBetICO() {
     >
       <span
         className="bg-pink-600 overflow-hidden p-1 text-white text-center rounded-full h-full mobile:text-xs"
-        style={{ width: `${subsPercent * 100}%` }}
+        style={{ width: `${(subsCount / goal) * 100}%` }}
       >
         {`${subsCount} BET`}
       </span>
-      <p
+      <div
         className="
           text-right m-2 mobile:text-xs
         "
       >
-        500M of 1MM
-      </p>
+        {pendent} of 1MM
+      </div>
     </div>
   )
 }

@@ -7,6 +7,7 @@ export default function Marketing() {
   const [gamblers, setGamblers] = useState<Number | null>(null)
   const [blocksLeft, setBlocksLeft] = useState<Number | null>(null)
   const [timeLeft, setTimeLeft] = useState<Number | null>(null)
+  const [tokensOwner, setTokensOwner] = useState<Number | null>(null)
 
 
   useEffect(() => {
@@ -16,6 +17,7 @@ export default function Marketing() {
       loadBlocksLeft()
       loadTimeLeft()
     }
+    if (!tokensOwner) loadTokensOwner()
   }, [])
 
   useEffect(() => {
@@ -49,6 +51,13 @@ export default function Marketing() {
     } else {
       setTimeLeft(0)
     }
+  }
+
+  function loadTokensOwner() {
+    fetch("http://localhost:3000/api/tokens")
+      .then(async (value) => {
+        setTokensOwner(await value.json())
+      })
   }
 
   return (

@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 import trophy from "../../../public/betting.png"
 import ProgressBetICO from "./progressBetICO"
 
@@ -37,11 +38,13 @@ export default function BetTokenICO() {
         <ProgressBetICO />
       </div>
       <div className="flex justify-center items-center w-full m-3">
-        <button
-          className="flex justify-center items-center p-2 mobile:p-1 text-black bg-gray-200 rounded-xl text-center hover:opacity-70 transition-colors"
-        >
-          Buy BETs
-        </button>
+        <Link href="/app" passHref>
+          <button
+            className="flex justify-center items-center p-2 mobile:p-1 text-black bg-gray-200 rounded-xl text-center hover:opacity-70 transition-colors"
+          >
+            Buy BETs
+          </button>
+        </Link>
       </div>
     </div>
   )
