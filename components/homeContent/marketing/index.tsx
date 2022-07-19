@@ -27,14 +27,14 @@ export default function Marketing() {
   }, [blocksLeft])
 
   function loadReward() {
-    fetch("http://localhost:3000/api/reward")
+    fetch("https://warriors-ccr5.vercel.app/api/reward")
       .then(async (value) => {
         setReward(await value.json())
       })
   }
 
   function loadGamblers() {
-    fetch("http://localhost:3000/api/gamblers")
+    fetch("https://warriors-ccr5.vercel.app/api/gamblers")
       .then(async (value) => {
         const data: Gamblers[] = await value.json()
         let gamblers = 0
@@ -46,7 +46,7 @@ export default function Marketing() {
   }
 
   function loadBlocksLeft() {
-    fetch("http://localhost:3000/api/blocks")
+    fetch("https://warriors-ccr5.vercel.app/api/blocks")
       .then(async (value) => {
         setBlocksLeft(await value.json())
       })
@@ -61,7 +61,7 @@ export default function Marketing() {
   }
 
   function loadTokensOwner() {
-    fetch("http://localhost:3000/api/tokens")
+    fetch("https://warriors-ccr5.vercel.app/api/tokens")
       .then(async (value) => {
         setTokensOwner(await value.json())
       })

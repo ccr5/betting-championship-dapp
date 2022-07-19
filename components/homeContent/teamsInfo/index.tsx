@@ -38,7 +38,7 @@ export default function TeamInfo() {
   }, [])
 
   function loadGamblers() {
-    fetch("http://localhost:3000/api/gamblers")
+    fetch("https://warriors-ccr5.vercel.app/api/gamblers")
       .then(async (value) => {
         const data: Gamblers[] = await value.json()
         const newTeams = teams

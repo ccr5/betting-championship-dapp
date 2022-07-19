@@ -20,7 +20,7 @@ export default function ProgressBetICO() {
   }, [subsCount])
 
   function loadTokensOwner() {
-    fetch("http://localhost:3000/api/tokens")
+    fetch("https://warriors-ccr5.vercel.app/api/tokens")
       .then(async (value) => {
         setTokensOwner(await value.json())
       })
