@@ -14,7 +14,7 @@ export default function handler(
     const betting = new ethers.Contract(process.env.BETTING_ADDRESS, BettingContract.abi, provider)
     let total = 0
 
-    betting.timer().then((value) => {
+    betting.timer().then((value: any) => {
       res.status(200).send(parseInt(value))
     })
 

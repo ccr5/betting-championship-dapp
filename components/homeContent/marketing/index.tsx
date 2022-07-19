@@ -4,11 +4,11 @@ import { Gamblers } from "../../../pages/api/gamblers"
 import trophy from "../../../public/trophy.svg"
 
 export default function Marketing() {
-  const [reward, setReward] = useState<Number | null>(null)
-  const [gamblers, setGamblers] = useState<Number | null>(null)
-  const [blocksLeft, setBlocksLeft] = useState<Number | null>(null)
-  const [timeLeft, setTimeLeft] = useState<Number | null>(null)
-  const [tokensOwner, setTokensOwner] = useState<Number | null>(null)
+  const [reward, setReward] = useState<number | null>(null)
+  const [gamblers, setGamblers] = useState<number | null>(null)
+  const [blocksLeft, setBlocksLeft] = useState<number | null>(null)
+  const [timeLeft, setTimeLeft] = useState<number | null>(null)
+  const [tokensOwner, setTokensOwner] = useState<number | null>(null)
 
 
   useEffect(() => {
@@ -37,8 +37,9 @@ export default function Marketing() {
     fetch("http://localhost:3000/api/gamblers")
       .then(async (value) => {
         const data: Gamblers[] = await value.json()
-        const gamblers = data.reduce((prev: Gamblers, curr: Gamblers) => {
-          return prev.bets + curr.bets
+        let gamblers = 0
+        data.map((value: Gamblers) => {
+          gamblers += value.bets
         })
         setGamblers(gamblers)
       })

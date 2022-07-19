@@ -9,13 +9,13 @@ interface Teams {
   name: String
   image: any,
   description: String
-  gamblers: Number
-  bets: Number
+  gamblers: number
+  bets: number
 }
 
 export default function TeamInfo() {
-  const [teamId, setTeamId] = useState<Number>(0)
-  const [gamblers, setGamblers] = useState<Number | null>(null)
+  const [teamId, setTeamId] = useState<number>(0)
+  const [gamblers, setGamblers] = useState<number | null>(null)
   const [teams, setTeams] = useState<Teams[]>([
     {
       name: "Khnum Amon",

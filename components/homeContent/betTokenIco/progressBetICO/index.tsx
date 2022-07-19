@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react"
 
 export default function ProgressBetICO() {
-  const [tokensOwner, setTokensOwner] = useState<Number | null>(null)
-  const [subsCount, setSubsCount] = useState<Number | null>(null)
-  const [goal, setGoal] = useState<Number>(1000000)
+  const [tokensOwner, setTokensOwner] = useState<number | null>(null)
+  const [subsCount, setSubsCount] = useState<number | null>(null)
+  const [goal, setGoal] = useState<number>(1000000)
   const [pendent, setPendent] = useState<String | null>(null)
 
 
@@ -50,7 +50,7 @@ export default function ProgressBetICO() {
     >
       <span
         className="bg-pink-600 overflow-hidden p-1 text-white text-center rounded-full h-full mobile:text-xs"
-        style={{ width: `${(subsCount / goal) * 100}%` }}
+        style={{ width: `${subsCount && (subsCount / goal) * 100}%` }}
       >
         {`${subsCount} BET`}
       </span>

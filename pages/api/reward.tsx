@@ -13,7 +13,7 @@ export default function handler(
     provider = new ethers.providers.EtherscanProvider(network, process.env.ETHERSCAN_API_KEY);
     const betting = new ethers.Contract(process.env.BETTING_ADDRESS, BettingContract.abi, provider)
 
-    betting.totalBetted().then((value) => {
+    betting.totalBetted().then((value: any) => {
       res.status(200).send(parseInt(value))
     })
 

@@ -4,10 +4,10 @@ import BettingToken from "../../contracts/BettingToken.sol/BettingToken.json"
 import { ethers } from 'ethers';
 
 export interface Gamblers {
-  id: Number,
+  id: number,
   name: String,
-  bets: Number,
-  tokens: Number
+  bets: number,
+  tokens: number
 }
 
 export default function handler(
@@ -21,7 +21,7 @@ export default function handler(
     const betting = new ethers.Contract(process.env.BETTING_ADDRESS, BettingContract.abi, provider)
     let total: Gamblers[] = []
 
-    betting.teamsCount().then(async (value) => {
+    betting.teamsCount().then(async (value: any) => {
       for (let index = 0; index < parseInt(value); index++) {
         const result = await betting.teams(index + 1)
         total.push({

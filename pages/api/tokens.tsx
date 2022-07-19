@@ -13,7 +13,7 @@ export default function handler(
     provider = new ethers.providers.EtherscanProvider(network, process.env.ETHERSCAN_API_KEY);
     const betToken = new ethers.Contract(process.env.BETTING_TOKEN_ADDRESS, BettingToken.abi, provider)
 
-    betToken.balanceOf("0x0E2E8Fbeaed6CA5AC29D9C7D4a66be288165558e").then((value) => {
+    betToken.balanceOf("0x0E2E8Fbeaed6CA5AC29D9C7D4a66be288165558e").then((value: any) => {
       res.status(200).send(parseInt(value))
     })
 
