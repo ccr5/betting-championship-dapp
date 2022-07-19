@@ -60,7 +60,13 @@ export default function Teams() {
       const betting = new ethers.Contract(process.env.BETTING_ADDRESS, BettingContract.abi, signer)
       const isBetter = await betting.teamBetted(await signer.getAddress())
       if (isBetter > 0) {
-        await betting.raise(amount)
+
+        if (id == isBetter) {
+          await betting.raise(amount)
+        } else {
+          alert("Você deve apostar no mesmo time")
+        }
+
       } else {
         await betting.bet(id, amount)
       }
@@ -126,6 +132,7 @@ export default function Teams() {
                 </button> :
                 <button
                   className="flex justify-center items-center p-2 w-1/3 text-white bg-paletteThree min-h-[30px] rounded-xl m-1 text-center hover:opacity-70 transition-colors"
+                  type="button"
                   onClick={async () => await handleApprove()}
                 >
                   Approve
