@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { useEffect, useState } from "react"
+import { Gamblers } from "../../../pages/api/gamblers"
 import trophy from "../../../public/trophy.svg"
 
 export default function Marketing() {
@@ -18,6 +19,7 @@ export default function Marketing() {
       loadTimeLeft()
     }
     if (!tokensOwner) loadTokensOwner()
+
   }, [])
 
   useEffect(() => {
@@ -34,7 +36,11 @@ export default function Marketing() {
   function loadGamblers() {
     fetch("http://localhost:3000/api/gamblers")
       .then(async (value) => {
-        setGamblers(await value.json())
+        const data: Gamblers[] = await value.json()
+        const gamblers = data.reduce((prev: Gamblers, curr: Gamblers) => {
+          return prev.bets + curr.bets
+        })
+        setGamblers(gamblers)
       })
   }
 
