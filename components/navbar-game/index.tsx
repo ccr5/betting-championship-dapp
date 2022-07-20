@@ -15,7 +15,6 @@ export default function NavbarGame() {
 		const web3Modal = new Web3Modal()
 		const instance = await web3Modal.connect()
 		const provider = new ethers.providers.Web3Provider(instance)
-		console.log(provider)
 		appProvider.handleProvider(provider)
 	}
 

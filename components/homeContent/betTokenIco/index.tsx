@@ -12,7 +12,15 @@ export default function BetTokenICO() {
   const [pendent, setPendent] = useState<string | null>(null)
 
   useEffect(() => {
-    if (!tokensOwner) loadTokensOwner()
+    let interval: any
+
+    interval = setInterval(() => {
+      loadTokensOwner()
+    }, 60000)
+
+    return () => {
+      clearInterval(interval)
+    }
   }, [])
 
   useEffect(() => {

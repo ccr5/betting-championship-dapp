@@ -50,7 +50,6 @@ export default function Teams() {
     e.preventDefault()
     const id = parseInt(e.target[0].value)
     const amount = parseInt(e.target[1].value)
-    console.log(id, amount)
 
     if (!amount || amount <= 0) alert("Erro ao apostar")
 

@@ -20,7 +20,15 @@ export default function TeamInfo() {
   const [teams, setTeams] = useState<Teams[] | null>(null)
 
   useEffect(() => {
-    if (!gamblers) loadGamblers()
+    let interval: any
+
+    interval = setInterval(() => {
+      loadGamblers()
+    }, 60000)
+
+    return () => {
+      clearInterval(interval)
+    }
   }, [])
 
   function loadGamblers() {
