@@ -101,6 +101,7 @@ export function Modal(props: ModalProps) {
             <button
               className="flex justify-center items-center p-2 w-1/3 text-white bg-paletteFour min-h-[30px] rounded-xl m-1 text-center hover:opacity-70 transition-colors"
               type="button"
+              onClick={() => props.handleModal(value => !value)}
             >
               Play
             </button>
