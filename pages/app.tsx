@@ -49,7 +49,7 @@ const App: NextPage = () => {
             <AppContent />
             <Footer />
           </div>
-          {modal ? <Modal handleModal={setModal} /> : null}
+          {modal ? <Modal modal={modal} handleModal={setModal} /> : null}
         </ConnectedAccount.Provider>
       </AppProvider.Provider>
 

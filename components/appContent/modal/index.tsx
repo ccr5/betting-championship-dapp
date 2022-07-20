@@ -3,10 +3,16 @@ import Link from "next/link"
 import closeModal from "../../../public/close.png"
 
 interface ModalProps {
+  modal: boolean
   handleModal: (value: boolean) => void
 }
 
 export function Modal(props: ModalProps) {
+
+  function toggleModal() {
+    props.handleModal(!props.modal)
+  }
+
   return (
     <div className="absolute top-0 left-0 h-screen w-screen bg-gray-500 bg-opacity-30">
       <div className="flex justify-center items-center h-full w-full">
@@ -16,7 +22,7 @@ export function Modal(props: ModalProps) {
         ">
           <div
             className="flex w-full justify-end items-end p-2"
-            onClick={() => props.handleModal(value => !value)}
+            onClick={() => toggleModal()}
           >
             <Image
               src={closeModal}
@@ -101,7 +107,7 @@ export function Modal(props: ModalProps) {
             <button
               className="flex justify-center items-center p-2 w-1/3 text-white bg-paletteFour min-h-[30px] rounded-xl m-1 text-center hover:opacity-70 transition-colors"
               type="button"
-              onClick={() => props.handleModal(value => !value)}
+              onClick={() => toggleModal()}
             >
               Play
             </button>
