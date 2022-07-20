@@ -22,6 +22,8 @@ export default function TeamInfo() {
   useEffect(() => {
     let interval: any
 
+    loadGamblers()
+
     interval = setInterval(() => {
       loadGamblers()
     }, 60000)

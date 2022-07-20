@@ -14,6 +14,8 @@ export default function BetTokenICO() {
   useEffect(() => {
     let interval: any
 
+    loadTokensOwner()
+
     interval = setInterval(() => {
       loadTokensOwner()
     }, 60000)

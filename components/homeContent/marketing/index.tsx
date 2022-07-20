@@ -14,6 +14,11 @@ export default function Marketing() {
   useEffect(() => {
     let interval: any
 
+    loadReward()
+    loadGamblers()
+    loadBlocksLeft()
+    loadTokensOwner()
+
     interval = setInterval(() => {
       loadReward()
       loadGamblers()

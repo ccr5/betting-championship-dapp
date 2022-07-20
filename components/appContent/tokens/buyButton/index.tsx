@@ -14,6 +14,9 @@ interface BuyButtonProps {
 export default function BuyButton(props: BuyButtonProps) {
   const connectedAccount = useContext(ConnectedAccount)
   const appProvider = useContext(AppProvider)
+  const reloadPage = () => {
+    window.location.reload()
+  }
 
   function buyToken() {
     if (props.from == "ethers" && connectedAccount.account) {
@@ -25,7 +28,8 @@ export default function BuyButton(props: BuyButtonProps) {
       }
       signer?.sendTransaction(tx).then((value: ethers.providers.TransactionResponse) => {
         value.wait().then(() => {
-          alert("Transferencia completa")
+          alert("Transaction Complete")
+          reloadPage()
         })
       })
     }

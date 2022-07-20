@@ -17,13 +17,13 @@ export default function Teams() {
   const appProvider = useContext(AppProvider)
   const [isApproval, setIsApproval] = useState(false)
   const [teams, setTeams] = useState<Team[] | null>()
+  const reloadPage = () => {
+    window.location.reload()
+  }
 
   useEffect(() => {
     if (!teams) loadTeams()
-
-    checkApproval().then((value) => {
-      setIsApproval(parseInt(value) > 0)
-    })
+    checkApproval()
   })
 
   async function checkApproval() {
@@ -31,7 +31,8 @@ export default function Teams() {
 
     if (process.env.BETTING_ADDRESS && process.env.BETTING_TOKEN_ADDRESS && signer) {
       const bettingToken = new ethers.Contract(process.env.BETTING_TOKEN_ADDRESS, BettingToken.abi, signer)
-      return bettingToken.allowance(await signer.getAddress(), process.env.BETTING_ADDRESS)
+      const value = await bettingToken.allowance(await signer.getAddress(), process.env.BETTING_ADDRESS)
+      setIsApproval(parseInt(value) > 0)
     }
   }
 
@@ -41,8 +42,14 @@ export default function Teams() {
     if (process.env.BETTING_ADDRESS && process.env.BETTING_TOKEN_ADDRESS && signer) {
       const bettingToken = new ethers.Contract(process.env.BETTING_TOKEN_ADDRESS, BettingToken.abi, signer)
       const balance = bettingToken.balanceOf(await signer.getAddress())
-      await bettingToken.connect(signer).approve(process.env.BETTING_ADDRESS, balance)
-      return await checkApproval()
+      bettingToken.connect(signer).approve(process.env.BETTING_ADDRESS, balance)
+        .then(async (tx: any) => {
+          tx.wait().then(async (value: any) => {
+            await checkApproval()
+            alert("Transaction complete!")
+            reloadPage()
+          })
+        })
     }
   }
 
@@ -51,7 +58,7 @@ export default function Teams() {
     const id = parseInt(e.target[0].value)
     const amount = parseInt(e.target[1].value)
 
-    if (!amount || amount <= 0) alert("Erro ao apostar")
+    if (!amount || amount <= 0) alert("Error")
 
     const signer = appProvider.provider?.getSigner()
 
@@ -61,13 +68,23 @@ export default function Teams() {
       if (isBetter > 0) {
 
         if (id == isBetter) {
-          await betting.raise(amount)
+          betting.raise(amount).then((value: any) => {
+            value.wait().then((value: any) => {
+              alert("Transaction complete!")
+              reloadPage()
+            })
+          })
         } else {
-          alert("Você deve apostar no mesmo time")
+          alert("You MUST to bet in the same team")
         }
 
       } else {
-        await betting.bet(id, amount)
+        betting.bet(id, amount).then((value: any) => {
+          value.wait().then((value: any) => {
+            alert("Transaction complete!")
+            reloadPage()
+          })
+        })
       }
     }
   }
