@@ -15,8 +15,6 @@ export default function TeamDetails() {
       </div>
       <div className="flex justify-center items-center w-full m-3">
         <div className="grid grid-cols-2 w-full m-3">
-          <div>Position:</div>
-          <div>7,000 BETs</div>
           <div>Kills:</div>
           <div>100</div>
         </div>

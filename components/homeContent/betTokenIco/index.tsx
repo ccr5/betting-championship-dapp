@@ -1,15 +1,59 @@
 import Image from "next/image"
 import Link from "next/link"
-import trophy from "../../../public/betting.png"
+import { useEffect, useState } from "react"
+import betting from "../../../public/betting.png"
 import ProgressBetICO from "./progressBetICO"
+import BetTokenICOSkeleton from "./skeleton"
 
 export default function BetTokenICO() {
-  return (
+  const [tokensOwner, setTokensOwner] = useState<number | null>(null)
+  const [subsCount, setSubsCount] = useState<number | null>(null)
+  const [goal, setGoal] = useState<number>(1000000)
+  const [pendent, setPendent] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (!tokensOwner) loadTokensOwner()
+  }, [])
+
+  useEffect(() => {
+    calculateSubsCount()
+  }, [tokensOwner])
+
+  useEffect(() => {
+    calculatePendent()
+  }, [subsCount])
+
+  function loadTokensOwner() {
+    fetch(process.env.WARRIORS_API + "/tokens")
+      .then(async (value) => {
+        setTokensOwner(await value.json())
+      })
+  }
+
+  function calculateSubsCount() {
+    if (goal && tokensOwner) {
+      setSubsCount(goal - tokensOwner)
+    }
+  }
+
+  function calculatePendent() {
+    if (subsCount) {
+      if (subsCount < 1000) {
+        setPendent(subsCount.toString())
+      } else if (subsCount == 1000000) {
+        setPendent("1MM")
+      } else {
+        setPendent(`${subsCount / 1000}M`)
+      }
+    }
+  }
+
+  return tokensOwner && subsCount && goal && pendent ?
     <div className="w-full bg-paletteTwo text-white rounded-2xl p-2 m-2">
       <div className="flex items-center justify-center gap-4 m-3">
         <div className="desktop:w-16 laptop:w-16 tablet:w-12 mobile:w-10">
           <Image
-            src={trophy}
+            src={betting}
             alt=""
           />
         </div>
@@ -35,7 +79,7 @@ export default function BetTokenICO() {
         <div>2000 BETs</div>
       </div>
       <div className="flex justify-center items-center w-full m-3">
-        <ProgressBetICO />
+        <ProgressBetICO tokensOwner={tokensOwner} subsCount={subsCount} goal={goal} pendent={pendent} />
       </div>
       <div className="flex justify-center items-center w-full m-3">
         <Link href="/app" passHref>
@@ -46,6 +90,6 @@ export default function BetTokenICO() {
           </button>
         </Link>
       </div>
-    </div>
-  )
+    </div> :
+    <BetTokenICOSkeleton />
 }

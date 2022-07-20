@@ -5,7 +5,7 @@ import { ethers } from 'ethers';
 
 export interface Gamblers {
   id: number,
-  name: String,
+  name: string,
   bets: number,
   tokens: number
 }
