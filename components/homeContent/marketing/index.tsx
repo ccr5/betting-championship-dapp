@@ -2,6 +2,7 @@ import Image from "next/image"
 import { useEffect, useState } from "react"
 import { Gamblers } from "../../../pages/api/gamblers"
 import trophy from "../../../public/trophy.svg"
+import MarketingSkeleton from "./skeleton"
 
 export default function Marketing() {
   const [reward, setReward] = useState<number | null>(null)
@@ -27,14 +28,14 @@ export default function Marketing() {
   }, [blocksLeft])
 
   function loadReward() {
-    fetch("https://warriors-ccr5.vercel.app/api/reward")
+    fetch(process.env.WARRIORS_API + "/reward")
       .then(async (value) => {
         setReward(await value.json())
       })
   }
 
   function loadGamblers() {
-    fetch("https://warriors-ccr5.vercel.app/api/gamblers")
+    fetch(process.env.WARRIORS_API + "/gamblers")
       .then(async (value) => {
         const data: Gamblers[] = await value.json()
         let gamblers = 0
@@ -46,7 +47,7 @@ export default function Marketing() {
   }
 
   function loadBlocksLeft() {
-    fetch("https://warriors-ccr5.vercel.app/api/blocks")
+    fetch(process.env.WARRIORS_API + "/blocks")
       .then(async (value) => {
         setBlocksLeft(await value.json())
       })
@@ -61,13 +62,13 @@ export default function Marketing() {
   }
 
   function loadTokensOwner() {
-    fetch("https://warriors-ccr5.vercel.app/api/tokens")
+    fetch(process.env.WARRIORS_API + "/tokens")
       .then(async (value) => {
         setTokensOwner(await value.json())
       })
   }
 
-  return (
+  return reward && gamblers && blocksLeft && timeLeft && tokensOwner ?
     <div className="w-full text-white">
       <div className="absolute align-top 
         desktop:w-[210px] desktop:h-[190px] desktop:ml-4 
@@ -102,6 +103,6 @@ export default function Marketing() {
           <div className="desktop:text-3xl laptop:text-3xl tablet:text-2xl mobile:text-xs">{reward && reward.toString()} BETs</div>
         </div>
       </div>
-    </div>
-  )
+    </div> :
+    <MarketingSkeleton />
 }
