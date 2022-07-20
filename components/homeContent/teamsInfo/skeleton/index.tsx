@@ -3,8 +3,6 @@ import teamOneLogo from "../../../public/teamLogo.svg"
 import teamTwoLogo from "../../../public/teamLogoTwo.png"
 import right from "../../../public/right.svg"
 import { useState, useEffect } from "react"
-import { Gamblers } from "../../../pages/api/gamblers"
-import MarketingSkeleton from "../marketing/skeleton"
 
 interface Teams {
   name: string
