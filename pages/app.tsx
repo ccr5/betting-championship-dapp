@@ -7,8 +7,11 @@ import { AppProvider, IAppProvider } from '../context/provider'
 import { providers } from 'ethers'
 import { useState } from 'react'
 import { IConnectedAccount, ConnectedAccount } from '../context/account'
+import { Modal } from "../components/appContent/modal";
 
 const App: NextPage = () => {
+  const [modal, setModal] = useState(true)
+
   const [appProviderContext, setAppProviderContext] = useState<IAppProvider>({
     provider: null,
     handleProvider: handleProvider
@@ -41,9 +44,12 @@ const App: NextPage = () => {
       </Head>
       <AppProvider.Provider value={appProviderContext}>
         <ConnectedAccount.Provider value={connectedContext}>
-          <NavbarGame />
-          <AppContent />
-          <Footer />
+          <div className={modal ? "overflow-hidden h-screen w-screen" : ""}>
+            <NavbarGame />
+            <AppContent />
+            <Footer />
+          </div>
+          {modal ? <Modal modal={modal} handleModal={setModal} /> : null}
         </ConnectedAccount.Provider>
       </AppProvider.Provider>
 
