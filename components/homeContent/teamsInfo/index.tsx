@@ -43,7 +43,6 @@ export default function TeamInfo() {
             bets: 0
           }
         ]
-
         data.map((value: Gamblers, index: number) => {
           newTeams[index].name = value.name
           newTeams[index].bets = value.tokens
