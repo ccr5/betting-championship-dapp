@@ -1,6 +1,4 @@
 import Image from "next/image"
-import { useEffect, useState } from "react"
-import trophy from "../../../../public/trophy.svg"
 
 export default function MarketingSkeleton() {
   return (
@@ -9,12 +7,7 @@ export default function MarketingSkeleton() {
         desktop:w-[210px] desktop:h-[190px] desktop:ml-4 
         laptop:w-[180px] laptop:h-[160px] laptop:ml-2
         tablet:w-[160px] tablet:h-[140px] tablet:ml-1
-        mobile:w-[80px] mobile:h-[60px] mobile:ml-1">
-        <Image
-          src={trophy}
-          alt=""
-        />
-      </div>
+        mobile:w-[80px] mobile:h-[60px] mobile:ml-1 bg-gray-500 rounded-full animate-pulse"/>
       <div className="desktop:h-[90px] laptop:h-[75px] tablet:h-[65px] mobile:h-[28px]"></div>
       <div className="flex w-full justify-end bg-paletteThree text-center rounded-t-xl p-1">
         <div className="

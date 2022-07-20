@@ -11,16 +11,24 @@ export default function Marketing() {
   const [timeLeft, setTimeLeft] = useState<number | null>(null)
   const [tokensOwner, setTokensOwner] = useState<number | null>(null)
 
-
   useEffect(() => {
-    if (!reward) loadReward()
-    if (!gamblers) loadGamblers()
-    if (!blocksLeft) {
-      loadBlocksLeft()
-      loadTimeLeft()
-    }
-    if (!tokensOwner) loadTokensOwner()
+    let interval: any
 
+    loadReward()
+    loadGamblers()
+    loadBlocksLeft()
+    loadTokensOwner()
+
+    interval = setInterval(() => {
+      loadReward()
+      loadGamblers()
+      loadBlocksLeft()
+      loadTokensOwner()
+    }, 60000)
+
+    return () => {
+      clearInterval(interval)
+    }
   }, [])
 
   useEffect(() => {
