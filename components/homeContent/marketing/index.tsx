@@ -36,14 +36,14 @@ export default function Marketing() {
   }, [blocksLeft])
 
   function loadReward() {
-    fetch(process.env.WARRIORS_API + "/reward", {cache: "force-cache"})
+    fetch(process.env.NEXT_PUBLIC_WARRIORS_API + "/reward", {cache: "force-cache"})
       .then(async (value) => {
         setReward(await value.json())
       })
   }
 
   function loadGamblers() {
-    fetch(process.env.WARRIORS_API + "/gamblers", {cache: "force-cache"})
+    fetch(process.env.NEXT_PUBLIC_WARRIORS_API + "/gamblers", {cache: "force-cache"})
       .then(async (value) => {
         const data: Gamblers[] = await value.json()
         let gamblers = 0
@@ -55,7 +55,7 @@ export default function Marketing() {
   }
 
   function loadBlocksLeft() {
-    fetch(process.env.WARRIORS_API + "/blocks", {cache: "force-cache"})
+    fetch(process.env.NEXT_PUBLIC_WARRIORS_API + "/blocks", {cache: "force-cache"})
       .then(async (value) => {
         setBlocksLeft(await value.json())
       })
@@ -70,7 +70,7 @@ export default function Marketing() {
   }
 
   function loadTokensOwner() {
-    fetch(process.env.WARRIORS_API + "/tokens", {cache: "force-cache"})
+    fetch(process.env.NEXT_PUBLIC_WARRIORS_API + "/tokens", {cache: "force-cache"})
       .then(async (value) => {
         setTokensOwner(await value.json())
       })

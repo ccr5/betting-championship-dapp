@@ -34,7 +34,7 @@ export default function BetTokenICO() {
   }, [subsCount])
 
   function loadTokensOwner() {
-    fetch(process.env.WARRIORS_API + "/tokens", {cache: "force-cache"})
+    fetch(process.env.NEXT_PUBLIC_WARRIORS_API + "/tokens", {cache: "force-cache"})
       .then(async (value) => {
         setTokensOwner(await value.json())
       })

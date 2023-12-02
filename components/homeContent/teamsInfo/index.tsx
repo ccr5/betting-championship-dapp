@@ -34,7 +34,7 @@ export default function TeamInfo() {
   }, [])
 
   function loadGamblers() {
-    fetch(process.env.WARRIORS_API + "/gamblers", {cache: "force-cache"})
+    fetch(process.env.NEXT_PUBLIC_WARRIORS_API + "/gamblers", {cache: "force-cache"})
       .then(async (value) => {
         const data: Gamblers[] = await value.json()
         const newTeams = [
